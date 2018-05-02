@@ -1,0 +1,40 @@
+<style>
+    table tr td {
+        /*border: 1px black solid;*/
+    }
+#card			{border:1px #666 solid; width: auto; height: 100%;}
+#card td		{ color:#000; background: #fff; }
+#card .screen-name	{ font-size:3em; font-weight:bold; font-family:'Verdana'; padding-top:0.5em; }
+#card .name		{ font-size:2em; }
+
+</style>
+
+<% if session[:user] %>
+    <% user = session[:user] %>
+
+    <div id="card" style="display: block;">
+    <table>
+     <tbody>
+        <tr>
+            <td style="width:50%;align:center;" rowspan="4" id="iconwrap">
+              <img id="icon" style="margin: 10px; display: inline;" src="<%= user['image_url'].gsub('_normal','') %>"></td>
+        </tr>
+        <tr>
+            <td colspan="2" valign="middle" style="padding-left:10px;">
+                <div class="screen-name"><span><%= user['screen_name'] %></span></div></td>
+        </tr>
+        <tr>
+            <td colspan="2" valign="top" style="padding-left:10px; padding-bottom: 10px;">
+                <p class="name"><span><%= user['username'] %></span></p></td>
+        </tr>
+        <tr>
+            <td align="right" style="padding-top:5px; height: 33%;">
+                <img id="twitter-logo" src="http://logos-download.com/wp-content/uploads/2016/02/Twitter_logo_bird_transparent_png-700x568.png" style="width: 100%;height:auto;"></td>
+            <td align="center" style="padding-top:5px; height: 33%;width:33%;">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://twitter.com/<%= (user['screen_name'] || '') %>" style="width: 80%; height: auto;"></td>
+        </tr>
+    </tbody></table>
+    </div>
+<% else %>
+    データがありません
+<% end %>
