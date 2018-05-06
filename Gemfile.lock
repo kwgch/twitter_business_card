@@ -98,7 +98,7 @@ GEM
     omniauth-twitter (1.4.0)
       omniauth-oauth (~> 1.1)
       rack
-    pg (1.0.0)
+    pg (0.20.0)
     popper_js (1.12.9)
     rack (1.6.10)
     rack-test (0.6.3)
@@ -189,7 +189,7 @@ DEPENDENCIES
   jquery-rails
   omniauth
   omniauth-twitter
-  pg
+  pg (~> 0.20.0)
   rails (= 4.2.7)
   rails_12factor
   sass-rails (~> 5.0)
